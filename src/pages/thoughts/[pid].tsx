@@ -12,6 +12,7 @@ import './dark-theme.css'
 import '../../markdown.css'
 import debounce from 'lodash.debounce'
 import hljs from 'highlight.js';
+import { stripDashes } from 'util/createLink';
 const Thought = (props:PageProps) => {
 
 
@@ -22,26 +23,30 @@ const Thought = (props:PageProps) => {
   const [ thoughtData,setThoughtData ] = useState(()=>{
     const url = props.uri
     const paths = url.split('/')
-    const lastPath = paths[paths.length-1].replace('-'," ")
-    const data = thoughtsData.find((d)=>lastPath===d.title)
-    if(!data){
-      props.navigate('/404.html')
-      window.location.reload()
-      return;
-    }
-    // the markdown url is set here first, then it's fetched in the useEffect.
+    const lastPath = paths[paths.length-1].split("-").join(" ")
+    console.log(`lastPath --> ${lastPath}`)
+    const data = thoughtsData.find((d)=>{
+      console.log(`last path --> ${lastPath}  
+      
+        title --> ${d.title.toLowerCase()}
+      `)  
+      return lastPath===stripDashes(d.title.toLowerCase())
+    })
 
-    let {date,image,description,md:markdown} = data
+    // the markdown url is set here first, then it's fetched in the useEffect.
+    if(data){
+    let {date,image,description,md:markdown,title} = data
     console.log(description)
 
     return {
-      title:lastPath,
+      title,
     date,
     image,
     markdown,
     description
   
   }
+}
   })
 const resizeBar = debounce((e)=>{
   
@@ -79,9 +84,7 @@ useEffect(()=>{
 },[])
 
 return <main className='w-screen h-full text-white bg-neutral-900 overflow-x-hidden'>
-      <Helmet>
-        <title> portableThoughts - {thoughtData.title || ""} </title>
-      </Helmet>
+ 
       <animated.div style={spring} className='w-full fixed top-0 left-0 h-2 bg-gradient-to-r from-red-500 to-orange-500'/>
 
       

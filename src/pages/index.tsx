@@ -16,7 +16,7 @@ const IndexPage = (props:PageProps) => {
 
   return (
     
-    <main className="h-full w-screen bg-neutral-900 text-white px-3 md:px-20">
+    <main className="h-full w-screen bg-neutral-900 text-white px-3  md+:px-12 md:px-20">
       <Helmet>
         <title>
           portableThoughts

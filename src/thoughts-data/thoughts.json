@@ -4,39 +4,7 @@
      "date":"01/02/2022",
      "title":"How I Created A CLI-Based Wordle Clone With React",
      "description":"Meet wordly",
-     "md":"https://raw.githubusercontent.com/facebook/react/master/README.md"
- },
-    {
-        
-    "image":"https://reactjs.org/logo-og.png",
-    "date":"31/01/2022",
-    "title":"React Native",
-    "description":"React native..!",
-    "md":"https://raw.githubusercontent.com/facebook/react-native/master/README.md"
-    },
-
-    {
-        
-        "image":"https://camo.githubusercontent.com/c0334ff12149f79bcf27d97aca688ddb72c989c09c3f6b9db0a93d59cb1bbc28/68747470733a2f2f7376656c74656a732e6769746875622e696f2f6173736574732f62616e6e65722e706e67",
-        "date":"1/02/2022",
-        "title":"Svelte",
-        "description":"Talking about svelte!",
-        "md":"https://raw.githubusercontent.com/sveltejs/svelte/master/README.md"
-    },
-    {
-        
-        "image":"https://reactjs.org/logo-og.png",
-        "date":"2/02/2022",
-        "title":"React Native",
-        "description":"React native..!",
-        "md":"https://raw.githubusercontent.com/facebook/react-native/master/README.md"
-        },
-        {
-        
-            "image":"https://reactjs.org/logo-og.png",
-            "date":"3/02/2022",
-            "title":"React Native",
-            "description":"React native..!",
-            "md":"https://raw.githubusercontent.com/facebook/react-native/master/README.md"
-            }
+     "md":"https://raw.githubusercontent.com/portableCoder/portableThoughts/main/blog/thought1.md"
+ }
+   
 ]
