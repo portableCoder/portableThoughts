@@ -1,0 +1,6 @@
+{
+    "componentChunkName": "component---src-pages-thoughts-[pid]-tsx",
+    "path": "/thoughts/[pid]/",
+    "result": {"pageContext":{}},
+    "staticQueryHashes": [],
+    "matchPath": "/thoughts/:pid"}
