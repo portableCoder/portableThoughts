@@ -1,0 +1,69 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Sayan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-markdow
+
+PATH: 
+  C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Eclipse Foundation\jdk-8.0.302.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Sayan\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Sayan\AppData\Local\Programs\Python\Python310\;C:\Users\Sayan\AppData\Local\Microsoft\WindowsApps;C:\Users\Sayan\AppData\Roaming\npm;C:\Users\Sayan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sayan\AppData\Local\Android\;C:\Users\Sayan\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\bin;
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/react-markdow: Not found
+      at Request.params.callback [as _callback] (C:\Users\Sayan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66140:18)
+      at Request.self.callback (C:\Users\Sayan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140885:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (C:\Users\Sayan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141857:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (C:\Users\Sayan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141779:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "",
+    "version": "1.0.0",
+    "private": true,
+    "description": ".",
+    "author": "portableCoder",
+    "keywords": [
+      "gatsby"
+    ],
+    "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop",
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean"
+    },
+    "dependencies": {
+      "autoprefixer": "^10.4.2",
+      "gatsby": "^4.6.0",
+      "gatsby-plugin-postcss": "^5.6.0",
+      "gatsby-plugin-react-helmet": "^5.6.0",
+      "gatsby-source-filesystem": "^4.6.0",
+      "postcss": "^8.4.5",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-helmet": "^6.1.0",
+      "tailwindcss": "^3.0.18"
+    },
+    "devDependencies": {
+      "@types/node": "^17.0.13",
+      "@types/react": "^17.0.38",
+      "@types/react-dom": "^17.0.11"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
