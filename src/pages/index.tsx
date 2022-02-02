@@ -1,7 +1,7 @@
 import { Link, PageProps } from "gatsby"
 import React from "react"
 import Header from "../components/Header"
-import './global.css'
+import 'styles/global.css'
 import thoughtsData from "../thoughts-data/thoughts.json"
 import FadeInImage from "components/FadeInImage"
 import { AiOutlineSwapRight } from 'react-icons/ai'
@@ -47,7 +47,7 @@ const IndexPage = (props:PageProps) => {
       {thoughtsData[0].description}
       </div>
       <div className="w-full flex justify-end items-end h-full ">
-        <button className="rounded-md my-16  h-16 bg-gradient-to-r from-sky-500 to-blue-500 w-full md:w-min  px-6 whitespace-nowrap py-3 text-xl md:text-2xl transition-all duration-500 hover:font-bold hover:from-green-400 hover:to-green-500">
+        <button className="rounded-md my-8  h-16 bg-gradient-to-r from-sky-500 to-blue-500 w-full md:w-min  px-6 whitespace-nowrap py-3 text-xl md:text-2xl transition-all duration-500 hover:font-bold hover:from-green-400 hover:to-green-500">
            <Link className="flex justify-center items-center gap-x-2" to={createLink(thoughtsData[0].title)}> Read <AiOutlineSwapRight/></Link> 
           
           </button>

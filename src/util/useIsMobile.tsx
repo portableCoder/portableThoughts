@@ -1,8 +1,9 @@
 import { useEffect,useRef, useState } from "react";
+import isBrowser from "./isBrowser";
 const getIsMobile = () => window.innerWidth <= 768;
 
 export default function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(getIsMobile());
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const onResize = () => {
@@ -17,4 +18,5 @@ export default function useIsMobile() {
     }, []);
     
     return isMobile;
+    
 }

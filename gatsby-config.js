@@ -1,7 +1,8 @@
 module.exports = {
+  pathPrefix: "/portableThoughts",
   siteMetadata: {
     title: `portableThoughts`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://portableCoder.github.io/portableThoughts`
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -14,6 +15,16 @@ module.exports = {
         icon: 'src/images/logo-svg.svg'
       }
     },
+    {
+      resolve: `gatsby-plugin-loadable-components-ssr`,
+      options: {
+        // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
+        // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
+        useHydrate: true,
+      },
+    },
+
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-tsconfig-paths`,
     {

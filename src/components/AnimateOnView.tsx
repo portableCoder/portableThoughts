@@ -1,12 +1,13 @@
+import Loadable from '@loadable/component'
 import React from 'react';
-import { animated, useSpring, UseSpringsProps } from 'react-spring';
+import { useSpring, animated } from 'react-spring'
 import { IntersectionOptions, useInView } from 'react-intersection-observer';
 interface Intersectable {
     intersectionOptions:IntersectionOptions;
 
 }
 type AnimateOnViewProps = {
-    inViewStyle:UseSpringsProps,exitViewStyle:UseSpringsProps,
+    inViewStyle:any,exitViewStyle:any,
     children:JSX.Element|JSX.Element[],
     className:string
 } & Intersectable

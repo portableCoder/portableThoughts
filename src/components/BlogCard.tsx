@@ -1,14 +1,13 @@
+import loadable from '@loadable/component';
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BlogData } from 'types/BlogData';
 import useMobileValue from 'util/useMobileValue';
 
-import { useInView } from 'react-intersection-observer';
-import { useSpring,animated } from 'react-spring';
-import AnimateOnView, { Intersectable } from './AnimateOnView';
 
+import { Intersectable } from './AnimateOnView';
+const AnimateOnView = loadable(/* #__LOADABLE__ */ ()=>import('./AnimateOnView'))
 type BlogCardProps = {onClick?:()=>void,className:string} & BlogData & Intersectable
 const BlogCard = ({onClick,link,description,title,image,className,date,intersectionOptions}:Partial<BlogCardProps>) => {
 
