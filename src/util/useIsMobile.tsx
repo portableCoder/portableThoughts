@@ -3,9 +3,13 @@ import isBrowser from "./isBrowser";
 const getIsMobile = () => window.innerWidth <= 768;
 
 export default function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState<boolean>();
 
     useEffect(() => {
+        if(!isMobile){
+        setIsMobile(getIsMobile())
+        }
+
         const onResize = () => {
             setIsMobile(getIsMobile());
         }

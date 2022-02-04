@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogCard from "components/BlogCard"
-import thoughtsData from "../thoughts-data/thoughts.json"
+import thoughtsData from "../../thoughts.json"
 import createLink from 'util/createLink';
 import Divider from './Divider';
 
