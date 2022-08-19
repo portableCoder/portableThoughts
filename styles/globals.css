@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+html,body{
+    font-family: 'Roboto Condensed';
+    overflow-x: hidden;
+}
+.gradient-text {
+    background-image: linear-gradient(45deg, #14b8a6, #4ade80);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
