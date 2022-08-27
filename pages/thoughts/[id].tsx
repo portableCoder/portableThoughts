@@ -2,23 +2,27 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
 import { useEffect } from 'react';
-import thoughtsData from '../../thoughts.json';
-
+//@ts-ignore
 import debounce from 'lodash.debounce'
-import hljs from 'highlight.js';
 import getMarkdown from '../../components/util/getMarkdown';
 import useMobileValue from '../../components/util/useMobileValue';
 import useTheme from '../../components/util/useTheme';
 import Head from 'next/head';
 import { animated, useSpring } from 'react-spring';
 import { stripDashes } from '../../components/util/createLink';
+import axios from 'axios';
+import blog from '../../blog';
+import { BlogData } from '../../types/BlogData';
+import Codeblock from '../../components/Codeblock';
+
 
 export async function getStaticPaths() {
+    const thoughtsData: BlogData[] = (await axios.get(blog)).data
+
     const paths = thoughtsData.map((el) => {
         el.title = stripDashes(el.title)
         return { params: { id: `${el.title.split(" ").join("-").toLocaleLowerCase()}` } };
     });
-    console.log(paths)
 
     return {
         paths,
@@ -27,14 +31,14 @@ export async function getStaticPaths() {
 }
 
 // `getStaticPaths` requires using `getStaticProps`
-export async function getStaticProps(context: { params: { id: string } }) {
+export async function getStaticProps(context: { params: { id: string, thoughtsData: BlogData[] } }) {
     let id = stripDashes(context.params.id)
-    console.log(id, context.params)
+    const thoughtsData: BlogData[] = (await axios.get(blog)).data
 
-    let post: typeof thoughtsData[0] = thoughtsData.find((el) => {
+    let post: BlogData = thoughtsData.find((el) => {
         console.log(el.title.toLocaleLowerCase(), id)
         return el.title.toLocaleLowerCase() === id
-    }) as typeof thoughtsData[0]
+    }) as BlogData
 
     let md = await getMarkdown(post.md)
     return {
@@ -47,7 +51,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
 }
 
 const Thought = ({ pageContext }: {
-    pageContext: typeof thoughtsData[0]
+    pageContext: BlogData
 }) => {
     const [theme, setTheme] = useTheme(true)
 
@@ -57,12 +61,8 @@ const Thought = ({ pageContext }: {
     const spring = useSpring({
         width: scrollHeight
     })
-    useEffect(() => {
-        hljs.highlightAll()
 
-    }, [])
-
-    const resizeBar = debounce((e) => {
+    const resizeBar = debounce((e: any) => {
 
 
         const scrollTop = window.scrollY
@@ -92,7 +92,6 @@ const Thought = ({ pageContext }: {
             </title>
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-
             <meta property="og:image" content={image} />
         </Head>
 
@@ -116,7 +115,7 @@ const Thought = ({ pageContext }: {
                 <h1>{description}</h1>
             </div>
             <ReactMarkdown
-
+                components={Codeblock}
                 skipHtml
                 className='overflow-x-hidden w-full h-full dark:text-white text-black'
                 remarkPlugins={[remarkGfm]}

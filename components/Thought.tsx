@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
 import { useEffect } from 'react';
-import thoughtsData from '../thoughts.json';
 import 'styles/markdown.css'
 import 'styles/dark-theme.css'
-
+//@ts-ignore
 import debounce from 'lodash.debounce'
 import hljs from 'highlight.js';
 import getMarkdown from './util/getMarkdown';
@@ -13,10 +12,11 @@ import useMobileValue from './util/useMobileValue';
 import useTheme from './util/useTheme';
 import Head from 'next/head';
 import { animated, useSpring } from 'react-spring';
+import { BlogData } from '../types/BlogData';
 
 
 const Thought = ({ pageContext }: {
-  pageContext: typeof thoughtsData[0]
+  pageContext: BlogData
 }) => {
   const [theme, setTheme] = useTheme(true)
 
@@ -38,7 +38,7 @@ const Thought = ({ pageContext }: {
     })
   }, [])
 
-  const resizeBar = debounce((e) => {
+  const resizeBar = debounce((e: any) => {
 
 
     const scrollTop = window.scrollY

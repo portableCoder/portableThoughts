@@ -1,6 +1,5 @@
 import React from "react"
 import Header from "../components/Header"
-import thoughtsData from "../thoughts.json"
 import FadeInImage from "../components/FadeInImage"
 import { AiOutlineSwapRight } from 'react-icons/ai'
 import useMobileValue from "../components/util/useMobileValue"
@@ -10,10 +9,23 @@ import useTheme from "../components/util/useTheme"
 import Head from "next/head"
 import Link from "next/link"
 import { NextPage } from "next"
-const IndexPage = (props: NextPage) => {
+import { BlogData } from "../types/BlogData"
+import axios from "axios"
+import blog from "../blog"
+export async function getStaticProps(context: any) {
+  const thoughtsData = (await axios.get(blog)).data
+  return {
+    // Passed to the page component as props
+    props: {
+      thoughtsData
+    },
+  }
+
+}
+const IndexPage = (props: NextPage & { thoughtsData: BlogData[] }) => {
   const heightValue = useMobileValue<undefined, string>(undefined, "80vh")
   const [theme, setTheme] = useTheme(true)
-
+  const { thoughtsData } = props
 
   return (
 
@@ -59,7 +71,7 @@ const IndexPage = (props: NextPage) => {
         </div>
       </div>
 
-      <BlogDisplay />
+      <BlogDisplay thoughtsData={thoughtsData} />
 
     </main>
   )
