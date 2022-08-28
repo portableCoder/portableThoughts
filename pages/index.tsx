@@ -1,17 +1,17 @@
 import React from "react"
 import Header from "../components/Header"
 import FadeInImage from "../components/FadeInImage"
-import { AiOutlineSwapRight } from 'react-icons/ai'
 import useMobileValue from "../components/util/useMobileValue"
 import BlogDisplay from "../components/BlogDisplay"
 import createLink from "../components/util/createLink"
-import useTheme from "../components/util/useTheme"
 import Head from "next/head"
 import Link from "next/link"
 import { NextPage } from "next"
 import { BlogData } from "../types/BlogData"
 import axios from "axios"
 import blog from "../blog"
+import Icons from "../components/Icons"
+
 export async function getStaticProps(context: any) {
   const thoughtsData = (await axios.get(blog)).data
   return {
@@ -24,13 +24,13 @@ export async function getStaticProps(context: any) {
 }
 const IndexPage = (props: NextPage & { thoughtsData: BlogData[] }) => {
   const heightValue = useMobileValue<undefined, string>(undefined, "80vh")
-  const [theme, setTheme] = useTheme(true)
   const { thoughtsData } = props
 
   return (
 
     <main className="h-full w-screen text-black  dark:text-white px-3  md+:px-12 md:px-20">
       <Head>
+        <Icons />
         <title>
           portableThoughts
         </title>
@@ -61,11 +61,13 @@ const IndexPage = (props: NextPage & { thoughtsData: BlogData[] }) => {
           <div className="text-xl">
             {thoughtsData[0].description}
           </div>
-          <div className="w-full flex justify-end items-end h-full ">
-            <button className="rounded-md my-8 md:my-28  h-16  bg-sky-500  w-full md:w-min  px-6 whitespace-nowrap py-3 text-xl md:text-2xl transition-all duration-500 hover:bg-green-500 text-white  ">
-              <Link className="flex justify-center items-center gap-x-2" href={createLink(thoughtsData[0].title)}> Read </Link>
+          <div className="w-full flex justify-end items-end h-full -my-6 md:my-auto ">
+            <Link className="flex justify-center items-center gap-x-2" href={createLink(thoughtsData[0].title)}>
+              <a className="rounded-md my-8 md:my-28 flex items-center justify-center  h-16 text-center  bg-sky-500  w-full md:w-min  px-6 whitespace-nowrap py-3 text-xl md:text-2xl transition-all duration-500 hover:bg-green-500 text-white  ">
+                Read
+              </a>
+            </Link>
 
-            </button>
           </div>
 
         </div>

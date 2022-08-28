@@ -6,15 +6,14 @@ import { useEffect } from 'react';
 import debounce from 'lodash.debounce'
 import getMarkdown from '../../components/util/getMarkdown';
 import useMobileValue from '../../components/util/useMobileValue';
-import useTheme from '../../components/util/useTheme';
 import Head from 'next/head';
 import { animated, useSpring } from 'react-spring';
 import { stripDashes } from '../../components/util/createLink';
 import axios from 'axios';
-import blog from '../../blog';
 import { BlogData } from '../../types/BlogData';
 import Codeblock from '../../components/Codeblock';
-
+import Icons from '../../components/Icons';
+const blog = "https://raw.githubusercontent.com/portableCoder/portableThoughts/blog/thoughts.json"
 
 export async function getStaticPaths() {
     const thoughtsData: BlogData[] = (await axios.get(blog)).data
@@ -29,14 +28,12 @@ export async function getStaticPaths() {
         fallback: false, // can also be true or 'blocking'
     }
 }
-
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps(context: { params: { id: string, thoughtsData: BlogData[] } }) {
     let id = stripDashes(context.params.id)
     const thoughtsData: BlogData[] = (await axios.get(blog)).data
 
     let post: BlogData = thoughtsData.find((el) => {
-        console.log(el.title.toLocaleLowerCase(), id)
         return el.title.toLocaleLowerCase() === id
     }) as BlogData
 
@@ -53,15 +50,12 @@ export async function getStaticProps(context: { params: { id: string, thoughtsDa
 const Thought = ({ pageContext }: {
     pageContext: BlogData
 }) => {
-    const [theme, setTheme] = useTheme(true)
-
     const height = useMobileValue("35vh", "75vh")
     const { title, date, md, description, image } = pageContext
     const [scrollHeight, setScrollHeight] = useState(0)
     const spring = useSpring({
         width: scrollHeight
     })
-
     const resizeBar = debounce((e: any) => {
 
 
@@ -87,6 +81,7 @@ const Thought = ({ pageContext }: {
 
     return <main className='w-screen h-full text-black dark:text-white  overflow-x-hidden'>
         <Head>
+            <Icons />
             <title>
                 {`portableThoughts - ${title || "Not found.."}`}
             </title>

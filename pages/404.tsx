@@ -7,12 +7,19 @@ const NotFoundComponent = dynamic(() => import("../components/NotFoundComponent"
 })
 
 import isBrowser from "../components/util/isBrowser"
+import Head from "next/head"
+import Icons from "../components/Icons"
 const NotFoundPage = () => {
 
 
 
   return (
     <>
+      <Head>
+        <Icons />
+        <title>NOT FOUND</title>
+
+      </Head>
       {
         isBrowser() &&
         <NotFoundComponent />

@@ -21,7 +21,6 @@ const storeKey = "theme"
 const useTheme = (setBackground?:boolean) => {
     const getThemeFromLocalStorage = ():Theme|undefined=>{
         const ltheme = (localStorage.getItem(storeKey) as Theme)
-        console.log(ltheme)
         return  ltheme || "dark"
     }
     const setThemeLocalStorage = (theme:Theme)=>{

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import Head from 'next/head';
 import Link from 'next/link';
 const items = ["4", "0", "4"] as const
-const text = "Sorry! That doesn't exist.. (yet) "
+const text = "Sorry! That doesn't exist.. (Click to go back) "
 const NotFoundComponent = () => {
 
 
@@ -50,11 +50,11 @@ const NotFoundComponent = () => {
 
 
       <Link className="p-6 my-12   " passHref={true} href="/">
-        <a className='text-2xl'> Go home </a>
+        <a className='text-2xl opacity-0'> Go home </a>
       </Link>
-      <animated.div style={spring} className="flex whitespace-nowrap gap-x-2 w-3/4 mx-auto justify-center items-center px-36">
-        {text}
-      </animated.div>
+      <Link href={'/'} className=" flex whitespace-nowrap gap-x-2 w-3/4 mx-auto justify-center items-center px-36">
+        <a className='md:text-2xl underline text-blue-400'> {text} </a>
+      </Link>
     </div>
   </div>
 
