@@ -20,10 +20,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm install
+          cache: "yarn"
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - run: yarn
       - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/portableCoder/portableThoughts.git
       - run: touch out/.nojekyll
-      - run: npm run deploy-ci
+      - run: yarn deploy-ci
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
