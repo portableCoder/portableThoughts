@@ -10,7 +10,7 @@
     "lint": "next lint",
     "publish-page": "gh-pages -d out -t true",
     "deploy": "next build && next export && node deploy.js",
-    "deploy-ci": "next build && next export && gh-pages -d out -t true -u github-actions-bot <support+actions@github.com>"
+    "deploy-ci": "gh-pages -d out -t true -u github-actions-bot <support+actions@github.com>"
   },
   "dependencies": {
     "@fontsource/roboto-condensed": "^4.5.9",

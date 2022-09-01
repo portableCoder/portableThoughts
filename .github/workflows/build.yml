@@ -26,6 +26,8 @@ jobs:
       - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/portableCoder/portableThoughts.git
       - run: mkdir -p out
       - run: touch out/.nojekyll
+      - run: yarn build
+      - run: yarn export
       - run: yarn deploy-ci
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
