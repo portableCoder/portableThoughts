@@ -28,6 +28,6 @@ jobs:
       - run: touch out/.nojekyll
       - run: yarn build
       - run: yarn export
-      - run: yarn deploy-ci
+      - run: npx gh-pages -d out -t true -u github-actions-bot <support+actions@github.com>
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
