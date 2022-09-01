@@ -24,6 +24,7 @@ jobs:
       - run: corepack enable
       - run: yarn
       - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/portableCoder/portableThoughts.git
+      - run: mkdir -p out
       - run: touch out/.nojekyll
       - run: yarn deploy-ci
     env:
