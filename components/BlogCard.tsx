@@ -24,7 +24,7 @@ const BlogCard = ({ onClick, link, description, title, image, className, date, i
       <img alt="blog-image" className='h-full rounded-tl-md rounded-tr-md rounded-bl-none rounded-br-none w-full object-cover' src={image} />
     </div>
     <div className='flex flex-col text-black  dark:text-white p-4 '>
-      <div className='flex flex-col  whitespace-nowrap'>
+      <div className='flex flex-col '>
         <h1 className='text-2xl md:text-3xl'>{title}</h1>
         <p className='text-gray-500 dark:text-gray-300'>{date}</p>
       </div>

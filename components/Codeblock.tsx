@@ -9,18 +9,21 @@ const Codeblock = {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
       <SyntaxHighlighter
+        className={`${className || ""} not-prose h-1/2 rounded-md mx-0`}
         style={tomorrow as any}
         language={match[1]}
+
         PreTag="div" {...props}>
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
 
     ) : (
-      <code className={className} {...props}>
+      <code  {...props}>
         {children}
       </code>
     )
-  }
+  },
+
 }
 
 export default Codeblock

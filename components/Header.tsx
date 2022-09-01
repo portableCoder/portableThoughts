@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GiCardboardBoxClosed } from 'react-icons/gi'
 import Switch from './Switch'
-import useTheme from './util/useTheme';
+import useTheme, { ThemeStyle } from './util/useTheme';
 const TITLE = 'portableThoughts'
 const Header = () => {
   const [theme, setTheme] = useTheme(true)
@@ -39,7 +39,9 @@ const Header = () => {
       clearInterval(titleTyper)
     }
   }, [])
-  return <header className='flex justify-between w-full text-xl md:text-3xl font-bold py-1 px-3  md:py-2 md:px-6 text-black dark:text-white '>
+  return <header style={{
+    backgroundColor: ThemeStyle[theme]?.bg || ThemeStyle['dark'].bg
+  }} className='flex justify-between w-full text-xl md:text-3xl font-bold py-1 px-3  md:py-2 md:px-6 text-black dark:text-white '>
     <div className='flex items-center justify-center gap-x-1'>
       <i className='m-auto md:my-0 hover:animate-bounce'><GiCardboardBoxClosed /></i>
       <h1 className='hover:animate-pulse flex '>{title.text}{showSlash && <p className='text-green-500'>_</p>} </h1>

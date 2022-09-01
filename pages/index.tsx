@@ -11,9 +11,17 @@ import { BlogData } from "../types/BlogData"
 import axios from "axios"
 import blog from "../blog"
 import Icons from "../components/Icons"
+import dayjs from "dayjs"
 
 export async function getStaticProps(context: any) {
-  const thoughtsData = (await axios.get(blog)).data
+  const thoughtsData: BlogData[] = (await axios.get(blog)).data
+
+  thoughtsData.sort((a, b) => {
+    let dayA = dayjs(a.date, "DD/MM/YYYY").unix()
+    let dayB = dayjs(b.date, "DD/MM/YYYY").unix()
+
+    return dayB - dayA
+  })
   return {
     // Passed to the page component as props
     props: {

@@ -5,7 +5,7 @@ type ThemeType = {
     bg:string,
     color:string
 }
-const ThemeStyle : Record<Theme,ThemeType>  = {
+export const ThemeStyle : Record<Theme,ThemeType>  = {
     
     dark:{
         bg:'#111216',

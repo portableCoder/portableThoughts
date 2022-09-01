@@ -13,6 +13,7 @@ import axios from 'axios';
 import { BlogData } from '../../types/BlogData';
 import Codeblock from '../../components/Codeblock';
 import Icons from '../../components/Icons';
+import Header from '../../components/Header';
 const blog = "https://raw.githubusercontent.com/portableCoder/portableThoughts/blog/thoughts.json"
 
 export async function getStaticPaths() {
@@ -89,13 +90,15 @@ const Thought = ({ pageContext }: {
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
         </Head>
+        <div className='fixed top-0 left-0 w-full'>
+            <Header />
+            <animated.div style={spring} className='w-full  h-2 bg-gradient-to-r from-red-500 to-orange-500' />
 
-        <animated.div style={spring} className='w-full fixed top-0 left-0 h-2 bg-gradient-to-r from-red-500 to-orange-500' />
+        </div>
 
-
-        <div className='sm:p-6 p-8 md+:px-20  md:px-56 markdown-body'>
-            <div className='text-4xl flex  w-full justify-self-start text-black dark:text-white'>
-                {title}
+        <div className='sm:p-6 p-8 md+:px-20  md:px-56 markdown-body my-16'>
+            <div className='text-4xl text-center  w-full  text-black dark:text-white'>
+                <h1>{title} </h1>
             </div>
             <div style={{
                 height
@@ -106,16 +109,14 @@ const Thought = ({ pageContext }: {
             </div>
 
 
-            <div className='text-xl text-black dark:text-white'>
-                <h1>{description}</h1>
-            </div>
+
             <ReactMarkdown
                 components={Codeblock}
                 skipHtml
-                className='overflow-x-hidden w-full h-full dark:text-white text-black'
+                className='max-w-none w-full md:w-3/4 prose-pre:bg-transparent prose-pre:mx-0 prose-pre:px-0 prose-pre:p-0 prose-pre:m-0  overflow-x-hidden   mx-auto h-full dark:text-white text-black prose sm:prose-sm prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-neutral  prose-lime dark:prose-invert '
                 remarkPlugins={[remarkGfm]}
             >
-                {md || ""}
+                {`# ${description} \n` + md || ""}
 
             </ReactMarkdown>
 
