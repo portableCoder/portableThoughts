@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prepare": "husky install",
     "export": "next export",
     "build": "next build",
     "start": "next start",
