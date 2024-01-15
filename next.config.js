@@ -8,7 +8,11 @@ const nextConfig = {
   swcMinify: true,
   assetPrefix: env.NODE_ENV === "development" ? undefined : '/portableThoughts/',
   basePath: env.NODE_ENV === "development" ? undefined : "/portableThoughts",
-  distDir: "dist"
+  distDir: "dist",
+
+  images: {
+    domains: ['github.com'],
+  },
 }
 
 module.exports = withTM(nextConfig)

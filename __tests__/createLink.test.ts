@@ -1,4 +1,4 @@
-import createLink  from '../../components/util/createLink'
+import createLink  from '../components/util/createLink'
 describe('testing createLink', () => {
   it('creates a link from a string',()=>{
       const title = 'my test post'

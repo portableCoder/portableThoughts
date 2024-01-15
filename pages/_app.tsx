@@ -1,16 +1,16 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-import "@fontsource/roboto-condensed"
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-import Icons from '../components/Icons'
+import "@fontsource/roboto-condensed";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import Icons from "../components/Icons";
 
 function MyApp({ Component, pageProps }: AppProps) {
   <Head>
     <Icons />
-  </Head>
+  </Head>;
 
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

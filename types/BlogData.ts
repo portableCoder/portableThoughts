@@ -1,5 +1,9 @@
 type BlogData = {
-    description:string,title:string,image:string,date:string,link:string,
-    md:string
+    description: string,
+    title: string,
+    image: string,
+    date: string,
+    md: string,
+    slug: string
 }
 export type { BlogData }
