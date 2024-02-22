@@ -1,8 +1,8 @@
 import { act, renderHook } from '@testing-library/react-hooks'
-import useTheme from '../components/util/useTheme';
-import useIsMobile from '../components/util/useIsMobile';
-import useMobileValue from '../components/util/useMobileValue';
-import useWindowSize from '../components/util/useWindowSize'
+import useTheme from '../util/useTheme';
+import useIsMobile from '../util/useIsMobile';
+import useMobileValue from '../util/useMobileValue';
+import useWindowSize from '../util/useWindowSize'
 
 
 function resize(width: number, height: number) {

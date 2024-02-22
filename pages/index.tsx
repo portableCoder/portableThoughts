@@ -1,22 +1,19 @@
 import React from "react";
 import Header from "../components/Header";
 import FadeInImage from "../components/FadeInImage";
-import useMobileValue from "../components/util/useMobileValue";
+import useMobileValue from "../util/useMobileValue";
 import BlogDisplay from "../components/BlogDisplay";
-import createLink from "../components/util/createLink";
 import Head from "next/head";
 import Link from "next/link";
 import { NextPage } from "next";
 import { BlogData } from "../types/BlogData";
-import axios from "axios";
 import Icons from "../components/Icons";
-import dayjs from "dayjs";
-import readMarkdownFiles from "../components/util/readMarkdownFiles";
+import { readBlogMarkdownFiles } from "../util/readMarkdownFiles";
+import dayjs from "../util/dayjs";
 
 export async function getStaticProps(context: any) {
-  const thoughtsData: BlogData[] = await readMarkdownFiles("./blogs");
+  const thoughtsData: BlogData[] = await readBlogMarkdownFiles("./blogs");
 
-  console.log("thoughtsdata--->", thoughtsData);
   thoughtsData.sort((a, b) => {
     let dayA = dayjs(a.date, "DD/MM/YYYY").unix();
     let dayB = dayjs(b.date, "DD/MM/YYYY").unix();

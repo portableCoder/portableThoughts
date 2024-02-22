@@ -1,9 +1,10 @@
 import { BlogData } from "../../types/BlogData";
 import Thought from "../../components/Thought";
-import readMarkdownFiles from "../../components/util/readMarkdownFiles";
+import { readBlogMarkdownFiles } from "../../util/readMarkdownFiles";
+import generateOgImage from "../../util/generateOgImage";
 
 export async function getStaticPaths() {
-  const thoughtsData: BlogData[] = await readMarkdownFiles("./blogs");
+  const thoughtsData: BlogData[] = await readBlogMarkdownFiles("./blogs");
 
   const paths = thoughtsData.map((el) => {
     return {
@@ -19,10 +20,13 @@ export async function getStaticPaths() {
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps(context: { params: { id: string } }) {
   let id = context.params.id;
-  let thoughtsData = await readMarkdownFiles("./blogs");
+  let thoughtsData = await readBlogMarkdownFiles("./blogs");
 
   let post: BlogData = thoughtsData.find((el) => {
-    return el.slug === id;
+    const { slug, image, title } = el;
+    generateOgImage(title, image, slug);
+
+    return slug === id;
   }) as BlogData;
 
   return {

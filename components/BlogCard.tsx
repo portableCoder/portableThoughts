@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BlogData } from "../types/BlogData";
 import AnimateOnView from "./AnimateOnView";
-import useMobileValue from "./util/useMobileValue";
+import useMobileValue from "../util/useMobileValue";
 import Image from "next/image";
 import { Intersectable } from "./AnimateOnView";
 import Link from "next/link";
@@ -37,8 +37,7 @@ const BlogCard = ({
           height,
         }}
       >
-        <Image
-          layout="fill"
+        <img
           placeholder="empty"
           alt="blog-image"
           className="h-full rounded-tl-md rounded-tr-md rounded-bl-none rounded-br-none w-full object-cover"

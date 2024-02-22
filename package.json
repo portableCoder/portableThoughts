@@ -23,19 +23,18 @@
   "lint-staged": {
     "pages/**/*.{js,jsx,ts,tsx,json,css}": [
       "prettier --write",
-      "eslint --fix .",
-      "tslint --fix --project ."
+      "eslint --fix ."
     ],
     "components/**/*.{js,jsx,ts,tsx,json,css}": [
       "prettier --write",
-      "eslint --fix .",
-      "tslint --fix --project ."
+      "eslint --fix ."
     ]
   },
   "dependencies": {
     "@fontsource/roboto-condensed": "^4.5.9",
+    "@vercel/og": "^0.6.2",
     "axios": "^0.27.2",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
     "lodash.debounce": "^4.0.8",

@@ -4,17 +4,17 @@ import remarkGfm from "remark-gfm";
 import { useEffect } from "react";
 //@ts-ignore
 import debounce from "lodash.debounce";
-import getMarkdown from "../components/util/getMarkdown";
-import useMobileValue from "../components/util/useMobileValue";
+import getMarkdown from "../util/getMarkdown";
+import useMobileValue from "../util/useMobileValue";
 import Head from "next/head";
 import { animated, useSpring } from "react-spring";
-import { stripDashes } from "../components/util/createLink";
-import axios from "axios";
+
 import { BlogData } from "../types/BlogData";
 import Codeblock from "../components/Codeblock";
 import Icons from "../components/Icons";
 import Header from "../components/Header";
 export default function Thought({ pageContext }: { pageContext: BlogData }) {
+  const slug = pageContext.slug;
   const height = useMobileValue("35vh", "75vh");
   const { title, date, md, description, image } = pageContext;
   const [scrollHeight, setScrollHeight] = useState(0);
@@ -44,7 +44,7 @@ export default function Thought({ pageContext }: { pageContext: BlogData }) {
         <title>{`portableThoughts - ${title || "Not found.."}`}</title>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={`/thought-${slug}.png`} />
       </Head>
       <div className="fixed top-0 left-0 w-full">
         <Header />

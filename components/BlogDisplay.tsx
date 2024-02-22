@@ -1,6 +1,6 @@
 import React from "react";
 import BlogCard from "./BlogCard";
-import createLink from "./util/createLink";
+import createLink from "../util/createLink";
 import Divider from "./Divider";
 import { BlogData } from "../types/BlogData";
 
